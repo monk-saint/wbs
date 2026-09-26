@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SUSHILA CREATIVES</title>
+    <meta
+      name="description"
+      content="Sushila Creatives is an independent Android software development studio."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      html {
+        box-sizing: border-box;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ink: "#1E293B",
+              line: "#E2E8F0",
+              accent: "#4F46E5",
+            },
+            fontFamily: {
+              sans: ['"Instrument Sans"', "ui-sans-serif", "system-ui", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="min-h-screen bg-white font-sans text-ink antialiased">
+    <main
+      class="mx-auto flex min-h-screen w-full max-w-xl flex-col justify-center px-6 py-16 text-center"
+    >
+      <header class="w-full">
+        <div class="mx-auto mb-8 h-1 w-10 rounded-full bg-accent" aria-hidden="true"></div>
+        <h1 class="text-[1.75rem] font-bold leading-tight tracking-tight sm:text-4xl">
+          SUSHILA CREATIVES
+        </h1>
+        <p class="mt-3 text-base font-medium sm:text-lg">Android Software &amp; Mobile Solutions</p>
+      </header>
+
+      <section class="mx-auto mt-10 w-full max-w-md" aria-labelledby="overview-heading">
+        <h2 id="overview-heading" class="sr-only">Business overview</h2>
+        <p class="text-[0.975rem] leading-7 text-ink/90 sm:text-base">
+          Sushila Creatives is an independent software development studio focused on building
+          high-performance, user-friendly Android applications and utility tools.
+        </p>
+      </section>
+
+      <section
+        class="mx-auto mt-10 w-full max-w-md rounded-2xl border border-line bg-white px-6 py-8"
+        aria-labelledby="contact-heading"
+      >
+        <h2 id="contact-heading" class="text-sm font-semibold tracking-tight">
+          Developer Contact &amp; Support
+        </h2>
+        <a
+          href="mailto:support@sushilacreatives.com"
+          class="mt-3 inline-block max-w-full break-all text-base font-medium text-accent underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+        >
+          support@sushilacreatives.com
+        </a>
+      </section>
+
+      <footer class="mt-14 w-full">
+        <nav class="flex items-center justify-center text-sm" aria-label="Legal">
+          <a
+            href="privacy.html"
+            class="font-medium text-accent underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+            >Privacy Policy</a
+          >
+          <a
+            href="terms.html"
+            class="ml-4 border-l border-line pl-4 font-medium text-accent underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+            >Terms of Service</a
+          >
+        </nav>
+        <p class="mt-4 text-xs text-ink/55">© 2026 SUSHILA CREATIVES. All rights reserved.</p>
+      </footer>
+    </main>
+  </body>
+</html>
