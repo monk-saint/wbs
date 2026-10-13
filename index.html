@@ -1,97 +1,366 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SUSHILA CREATIVES</title>
-    <meta
-      name="description"
-      content="Sushila Creatives is an independent Android software development studio."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sushila Creatives | Native Android Studio & Utilities</title>
+    <meta name="description" content="Sushila Creatives is an independent software studio building high-performance, privacy-first Android applications and utility tools.">
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      html {
-        box-sizing: border-box;
-      }
-      *,
-      *::before,
-      *::after {
-        box-sizing: inherit;
-      }
-    </style>
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              ink: "#1E293B",
-              line: "#E2E8F0",
-              accent: "#4F46E5",
-            },
-            fontFamily: {
-              sans: ['"Instrument Sans"', "ui-sans-serif", "system-ui", "sans-serif"],
-            },
-          },
-        },
-      };
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            400: '#818cf8',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81',
+                        }
+                    }
+                }
+            }
+        }
     </script>
-  </head>
-  <body class="min-h-screen bg-white font-sans text-ink antialiased">
-    <main
-      class="mx-auto flex min-h-screen w-full max-w-xl flex-col justify-center px-6 py-16 text-center"
-    >
-      <header class="w-full">
-        <div class="mx-auto mb-8 h-1 w-10 rounded-full bg-accent" aria-hidden="true"></div>
-        <h1 class="text-[1.75rem] font-bold leading-tight tracking-tight sm:text-4xl">
-          SUSHILA CREATIVES
-        </h1>
-        <p class="mt-3 text-base font-medium sm:text-lg">Android Software &amp; Mobile Solutions</p>
-      </header>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        p.font-mono { overflow-wrap: anywhere; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-brand-500 selection:text-white min-h-screen flex flex-col justify-between">
 
-      <section class="mx-auto mt-10 w-full max-w-md" aria-labelledby="overview-heading">
-        <h2 id="overview-heading" class="sr-only">Business overview</h2>
-        <p class="text-[0.975rem] leading-7 text-ink/90 sm:text-base">
-          Sushila Creatives is an independent software development studio focused on building
-          high-performance, user-friendly Android applications and utility tools.
-        </p>
-      </section>
+    <!-- NAVIGATION -->
+    <header class="sticky top-0 z-40 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/80">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-400 flex items-center justify-center font-bold text-white shadow-lg shadow-brand-500/20">
+                    SC
+                </div>
+                <span class="font-bold text-lg tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400">
+                    Sushila Creatives
+                </span>
+            </div>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <a href="#apps" class="hover:text-white transition-colors">Applications</a>
+                <a href="#architecture" class="hover:text-white transition-colors">Engineering</a>
+                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+            </nav>
+            <div>
+                <a href="mailto:contact@sushilacreatives.in" class="inline-flex items-center space-x-2 text-xs font-semibold bg-slate-800/80 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-lg border border-slate-700/80 transition-all">
+                    <i data-lucide="mail" class="w-3.5 h-3.5 text-brand-500"></i>
+                    <span class="hidden sm:inline">contact@sushilacreatives.in</span>
+                </a>
+            </div>
+        </div>
+    </header>
 
-      <section
-        class="mx-auto mt-10 w-full max-w-md rounded-2xl border border-line bg-white px-6 py-8"
-        aria-labelledby="contact-heading"
-      >
-        <h2 id="contact-heading" class="text-sm font-semibold tracking-tight">
-          Developer Contact &amp; Support
-        </h2>
-        <a
-          href="mailto:support@sushilacreatives.com"
-          class="mt-3 inline-block max-w-full break-all text-base font-medium text-accent underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-        >
-          support@sushilacreatives.com
-        </a>
-      </section>
+    <!-- HERO SECTION -->
+    <section class="relative pt-20 pb-16 overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-brand-900/30 via-slate-950 to-slate-950 -z-10"></div>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-flex items-center space-x-2 bg-brand-500/10 border border-brand-500/20 px-3 py-1 rounded-full text-brand-500 text-xs font-semibold mb-6">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                <span>Independent Android Software Studio</span>
+            </div>
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-6">
+                Crafting High-Performance <br class="hidden sm:inline">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-500 via-indigo-300 to-white">Privacy-First Android Tools</span>
+            </h1>
+            <p class="max-w-2xl mx-auto text-base sm:text-lg text-slate-400 mb-10 leading-relaxed">
+                Sushila Creatives builds lightweight, privacy-focused, and robust utility software designed for reliability, speed, and clean user experience.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#apps" class="inline-flex items-center space-x-2 bg-brand-600 hover:bg-brand-500 text-white px-6 py-3 rounded-xl font-medium shadow-lg shadow-brand-600/30 transition-all">
+                    <i data-lucide="grid" class="w-4 h-4"></i>
+                    <span>Explore Portfolio</span>
+                </a>
+                <a href="#contact" class="inline-flex items-center space-x-2 bg-slate-900 hover:bg-slate-800 text-slate-300 px-6 py-3 rounded-xl font-medium border border-slate-800 transition-all">
+                    <i data-lucide="user-check" class="w-4 h-4 text-slate-400"></i>
+                    <span>Developer Support</span>
+                </a>
+            </div>
+        </div>
+    </section>
 
-      <footer class="mt-14 w-full">
-        <nav class="flex items-center justify-center text-sm" aria-label="Legal">
-          <a
-            href="privacy.html"
-            class="font-medium text-accent underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-            >Privacy Policy</a
-          >
-          <a
-            href="terms.html"
-            class="ml-4 border-l border-line pl-4 font-medium text-accent underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-            >Terms of Service</a
-          >
-        </nav>
-        <p class="mt-4 text-xs text-ink/55">© 2026 SUSHILA CREATIVES. All rights reserved.</p>
-      </footer>
-    </main>
-  </body>
+    <!-- PORTFOLIO SECTION -->
+    <section id="apps" class="py-16 border-t border-slate-900 bg-slate-950">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Active Applications</h2>
+                    <p class="text-slate-400 text-sm mt-1">Published mobile utilities and applications available on Google Play.</p>
+                </div>
+            </div>
+
+            <!-- APPS GRID -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- App Card 1 -->
+                <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-5 hover:border-slate-700 transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center space-x-3.5 mb-3">
+                            <div class="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-brand-500 group-hover:scale-105 transition-transform">
+                                <i data-lucide="shield-alert" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white text-base">Blacklist Calls</h3>
+                                <p class="text-xs text-slate-400 font-mono">com.blacklistcalls.customblock</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed mb-4">Effective custom call blocking and spam filtering utility with privacy-first rules.</p>
+                    </div>
+                    <a href="https://play.google.com/store/apps/details?id=com.blacklistcalls.customblock" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center space-x-2 w-full bg-slate-800/90 hover:bg-brand-600 text-slate-200 hover:text-white py-2.5 rounded-lg text-xs font-semibold border border-slate-700/80 transition-all">
+                        <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
+                        <span>Google Play</span>
+                    </a>
+                </div>
+
+                <!-- App Card 2 -->
+                <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-5 hover:border-slate-700 transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center space-x-3.5 mb-3">
+                            <div class="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-teal-400 group-hover:scale-105 transition-transform">
+                                <i data-lucide="wind" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white text-base">Breathing Guide</h3>
+                                <p class="text-xs text-slate-400 font-mono">com.breathguide.calmfocusapp</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed mb-4">Mindful breathing rhythms and paced focus exercises for stress reduction.</p>
+                    </div>
+                    <a href="https://play.google.com/store/apps/details?id=com.breathguide.calmfocusapp" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center space-x-2 w-full bg-slate-800/90 hover:bg-brand-600 text-slate-200 hover:text-white py-2.5 rounded-lg text-xs font-semibold border border-slate-700/80 transition-all">
+                        <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
+                        <span>Google Play</span>
+                    </a>
+                </div>
+
+                <!-- App Card 3 -->
+                <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-5 hover:border-slate-700 transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center space-x-3.5 mb-3">
+                            <div class="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-amber-400 group-hover:scale-105 transition-transform">
+                                <i data-lucide="clock" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white text-base">Date Alarm</h3>
+                                <p class="text-xs text-slate-400 font-mono">app.futurealarm.datetime</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed mb-4">Precise long-term scheduling and future date alarm alerts for critical events.</p>
+                    </div>
+                    <a href="https://play.google.com/store/apps/details?id=app.futurealarm.datetime" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center space-x-2 w-full bg-slate-800/90 hover:bg-brand-600 text-slate-200 hover:text-white py-2.5 rounded-lg text-xs font-semibold border border-slate-700/80 transition-all">
+                        <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
+                        <span>Google Play</span>
+                    </a>
+                </div>
+
+                <!-- App Card 4 -->
+                <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-5 hover:border-slate-700 transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center space-x-3.5 mb-3">
+                            <div class="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-indigo-400 group-hover:scale-105 transition-transform">
+                                <i data-lucide="image" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white text-base">Image Resizer</h3>
+                                <p class="text-xs text-slate-400 font-mono">com.imageresizer.compressor</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed mb-4">Offline batch image compression and dimension adjustment without quality loss.</p>
+                    </div>
+                    <a href="https://play.google.com/store/apps/details?id=com.imageresizer.compressor" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center space-x-2 w-full bg-slate-800/90 hover:bg-brand-600 text-slate-200 hover:text-white py-2.5 rounded-lg text-xs font-semibold border border-slate-700/80 transition-all">
+                        <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
+                        <span>Google Play</span>
+                    </a>
+                </div>
+
+                <!-- App Card 5 -->
+                <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-5 hover:border-slate-700 transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center space-x-3.5 mb-3">
+                            <div class="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-rose-400 group-hover:scale-105 transition-transform">
+                                <i data-lucide="file-text" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white text-base">Image to PDF</h3>
+                                <p class="text-xs text-slate-400 font-mono">com.pdfscanner.imagetopdf</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed mb-4">Fast document scanning and multi-image conversion into secure PDF files.</p>
+                    </div>
+                    <a href="https://play.google.com/store/apps/details?id=com.pdfscanner.imagetopdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center space-x-2 w-full bg-slate-800/90 hover:bg-brand-600 text-slate-200 hover:text-white py-2.5 rounded-lg text-xs font-semibold border border-slate-700/80 transition-all">
+                        <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
+                        <span>Google Play</span>
+                    </a>
+                </div>
+
+                <!-- App Card 6 -->
+                <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-5 hover:border-slate-700 transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center space-x-3.5 mb-3">
+                            <div class="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-amber-500 group-hover:scale-105 transition-transform">
+                                <i data-lucide="grid-2x2" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white text-base">Merge Tiles</h3>
+                                <p class="text-xs text-slate-400 font-mono">app.autoapp.tilemerge</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed mb-4">Lightweight, offline puzzle game focused on smooth animations and minimal overhead.</p>
+                    </div>
+                    <a href="https://play.google.com/store/apps/details?id=app.autoapp.tilemerge" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center space-x-2 w-full bg-slate-800/90 hover:bg-brand-600 text-slate-200 hover:text-white py-2.5 rounded-lg text-xs font-semibold border border-slate-700/80 transition-all">
+                        <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
+                        <span>Google Play</span>
+                    </a>
+                </div>
+
+                <!-- App Card 7 -->
+                <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-5 hover:border-slate-700 transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center space-x-3.5 mb-3">
+                            <div class="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-sky-400 group-hover:scale-105 transition-transform">
+                                <i data-lucide="map-pin" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white text-base">Mock GPS</h3>
+                                <p class="text-xs text-slate-400 font-mono">app.autoapp.mockgps</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed mb-4">Developer testing utility for simulating location coordinates and route testing.</p>
+                    </div>
+                    <a href="https://play.google.com/store/apps/details?id=app.autoapp.mockgps" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center space-x-2 w-full bg-slate-800/90 hover:bg-brand-600 text-slate-200 hover:text-white py-2.5 rounded-lg text-xs font-semibold border border-slate-700/80 transition-all">
+                        <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
+                        <span>Google Play</span>
+                    </a>
+                </div>
+
+                <!-- App Card 8 -->
+                <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-5 hover:border-slate-700 transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center space-x-3.5 mb-3">
+                            <div class="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-purple-400 group-hover:scale-105 transition-transform">
+                                <i data-lucide="eye-off" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white text-base">SafeShare</h3>
+                                <p class="text-xs text-slate-400 font-mono">app.privacyscreenshot.editor</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed mb-4">Privacy tool for blurring sensitive text and obfuscating image details before sharing.</p>
+                    </div>
+                    <a href="https://play.google.com/store/apps/details?id=app.privacyscreenshot.editor" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center space-x-2 w-full bg-slate-800/90 hover:bg-brand-600 text-slate-200 hover:text-white py-2.5 rounded-lg text-xs font-semibold border border-slate-700/80 transition-all">
+                        <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
+                        <span>Google Play</span>
+                    </a>
+                </div>
+
+                <!-- App Card 9 -->
+                <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-5 hover:border-slate-700 transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center space-x-3.5 mb-3">
+                            <div class="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-blue-400 group-hover:scale-105 transition-transform">
+                                <i data-lucide="wrench" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white text-base">Waro</h3>
+                                <p class="text-xs text-slate-400 font-mono">app.redbanana.warrantyservicetracker</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed mb-4">Warranty tracking and service history organizer for personal devices and appliances.</p>
+                    </div>
+                    <a href="https://play.google.com/store/apps/details?id=app.redbanana.warrantyservicetracker" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center space-x-2 w-full bg-slate-800/90 hover:bg-brand-600 text-slate-200 hover:text-white py-2.5 rounded-lg text-xs font-semibold border border-slate-700/80 transition-all">
+                        <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
+                        <span>Google Play</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ENGINEERING / ARCHITECTURE SECTION (Shows seriousness to manual reviewers) -->
+    <section id="architecture" class="py-16 bg-slate-900/40 border-t border-slate-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Engineering & Stack</h2>
+                <p class="text-slate-400 text-sm mt-2">Built using modern Android architecture components, automated CI/CD pipelines, and privacy-preserving design patterns.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl">
+                    <div class="w-10 h-10 rounded-lg bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-4">
+                        <i data-lucide="layers" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-base font-semibold text-white mb-2">Modern Android Stack</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Native Android apps built for the device they run on, with local storage and no developer-operated backend.</p>
+                </div>
+                <div class="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl">
+                    <div class="w-10 h-10 rounded-lg bg-brand-500/10 text-brand-400 flex items-center justify-center mb-4">
+                        <i data-lucide="cpu" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-base font-semibold text-white mb-2">Automated Build Pipeline</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Each app is built, signed, and released on its own. Store listings stay separate from this studio site.</p>
+                </div>
+                <div class="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4">
+                        <i data-lucide="lock" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-base font-semibold text-white mb-2">Privacy & Local Execution</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Designed for minimal permission overhead and offline-first processing to keep user data secure on-device.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & DEVELOPER SUPPORT SECTION -->
+    <section id="contact" class="py-16 border-t border-slate-900 bg-slate-950">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-b from-slate-900 to-slate-900/90 border border-slate-800 rounded-2xl p-8 md:p-10 text-center relative overflow-hidden">
+                <div class="max-w-xl mx-auto">
+                    <h2 class="text-2xl font-bold text-white mb-3">Developer Contact & Support</h2>
+                    <p class="text-slate-400 text-sm mb-8 leading-relaxed">
+                        For support inquiries, feedback, or business communication regarding any Sushila Creatives application, reach out to our engineering team.
+                    </p>
+                    <div class="inline-flex flex-col sm:flex-row items-center justify-center gap-4 bg-slate-950/80 border border-slate-800 p-4 rounded-xl text-left">
+                        <div class="flex items-center space-x-3 px-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-brand-500"></i>
+                            <div>
+                                <div class="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Official Email</div>
+                                <a href="mailto:contact@sushilacreatives.in" class="text-sm font-semibold text-slate-200 hover:text-white break-all">contact@sushilacreatives.in</a>
+                                <div class="text-xs text-slate-400 mt-1">India</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-900 bg-slate-950 py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+            <div>
+                © 2026 SUSHILA CREATIVES. All rights reserved.
+            </div>
+            <div class="flex items-center space-x-6">
+                <a href="/privacy-policy" class="hover:text-slate-300 transition-colors">Privacy Policy</a>
+                <a href="/terms-of-service" class="hover:text-slate-300 transition-colors">Terms of Service</a>
+                <a href="mailto:contact@sushilacreatives.in" class="hover:text-slate-300 transition-colors">Support</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LUCIDE ICONS INITIALIZATION -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
 </html>
