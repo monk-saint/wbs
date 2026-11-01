@@ -112,20 +112,49 @@
                     empty.textContent = "App list loads after the privacy-policy catalog is published.";
                     grid.append(empty);
                 }
+                const icons = {
+                    "com.blacklistcalls.customblock": ["shield-alert", "text-brand-500"],
+                    "com.breathguide.calmfocusapp": ["wind", "text-teal-400"],
+                    "app.redbanana.claimready": ["receipt", "text-emerald-400"],
+                    "file-info.html": ["file-search", "text-slate-300"],
+                    "com.flashlight.screenlight.sos": ["flashlight", "text-yellow-400"],
+                    "formatkit.html": ["type", "text-violet-400"],
+                    "app.futurealarm.datetime": ["clock", "text-amber-400"],
+                    "com.gps.location.alarm": ["locate-fixed", "text-sky-400"],
+                    "com.imageresizer.compressor": ["image", "text-indigo-400"],
+                    "com.pdfscanner.imagetopdf": ["file-text", "text-rose-400"],
+                    "app.autoapp.tilemerge": ["grid-2x2", "text-amber-500"],
+                    "app.autoapp.mockgps": ["map-pin", "text-sky-400"],
+                    "app.redbanana.mofispeedtest": ["gauge", "text-cyan-400"],
+                    "app.redbanana.pinglater": ["bell", "text-orange-400"],
+                    "app.privacyscreenshot.editor": ["eye-off", "text-purple-400"],
+                    "com.simpleqr.scanandcreate": ["qr-code", "text-emerald-400"],
+                    "utc-clock-pro.html": ["globe", "text-indigo-400"],
+                    "app.redbanana.warrantyservicetracker": ["wrench", "text-blue-400"]
+                };
                 const linkClass = "inline-flex items-center justify-center space-x-2 flex-1 bg-slate-800/90 hover:bg-brand-600 text-slate-200 hover:text-white py-2.5 rounded-lg text-xs font-semibold border border-slate-700/80 transition-all";
                 for (const app of apps) {
                     const card = document.createElement("div");
                     card.className = "bg-slate-900/60 border border-slate-800/80 rounded-2xl p-5 hover:border-slate-700 transition-all flex flex-col justify-between group";
                     const top = document.createElement("div");
                     const row = document.createElement("div");
-                    row.className = "mb-4";
+                    row.className = "flex items-center space-x-3.5 mb-3";
+                    const mark = icons[app.package] || icons[app.file] || ["smartphone", "text-brand-500"];
+                    const badge = document.createElement("div");
+                    badge.className = "w-12 h-12 shrink-0 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center group-hover:scale-105 transition-transform " + mark[1];
+                    const glyph = document.createElement("i");
+                    glyph.setAttribute("data-lucide", mark[0]);
+                    glyph.className = "w-6 h-6";
+                    badge.append(glyph);
+                    const copy = document.createElement("div");
                     const title = document.createElement("h3");
-                    title.className = "text-base font-bold text-white tracking-tight";
+                    title.className = "font-semibold text-white text-base";
                     title.textContent = app.name;
                     const id = document.createElement("p");
-                    id.className = "text-xs text-slate-400 font-mono mt-1";
+                    id.className = "text-xs text-slate-400 font-mono";
                     id.textContent = app.kind === "android" ? app.package : "Chrome extension";
-                    row.append(title, id);
+                    copy.append(title, id);
+                    row.append(badge, copy);
                     top.append(row);
                     const actions = document.createElement("div");
                     actions.className = "flex gap-2";
